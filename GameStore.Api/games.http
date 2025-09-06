@@ -1,0 +1,30 @@
+﻿GET http://localhost:5298/games
+
+###
+POST http://localhost:5298/games
+Content-Type: application/json
+
+{
+  "Name": "MMMORPG Quest",
+  "Genre": "MMORPG",
+  "Price": 59.99,
+  "ReleaseDate": "2024-12-01"
+}
+
+### update
+PUT http://localhost:5298/games/1
+Content-Type: application/json
+
+{
+  "Name": "GTA 5",
+  "Genre": "Open World",
+  "Price": 59.99,
+  "ReleaseDate": "2024-12-01"
+}
+
+
+### Delete
+
+DELETE http://localhost:5298/games/1
+
+

@@ -1,0 +1,37 @@
+{
+  "version": 2,
+  "dgSpecHash": "sEIe7+4BfAA=",
+  "success": true,
+  "projectFilePath": "D:\\Programming\\Dotnet projects\\GameStore.Api\\GameStore.Api\\GameStore.Api.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Ahmed\\.nuget\\packages\\microsoft.codeanalysis.analyzers\\3.0.0-beta2.20059.3\\microsoft.codeanalysis.analyzers.3.0.0-beta2.20059.3.nupkg.sha512",
+    "C:\\Users\\Ahmed\\.nuget\\packages\\microsoft.codeanalysis.common\\3.5.0\\microsoft.codeanalysis.common.3.5.0.nupkg.sha512",
+    "C:\\Users\\Ahmed\\.nuget\\packages\\microsoft.codeanalysis.csharp\\3.5.0\\microsoft.codeanalysis.csharp.3.5.0.nupkg.sha512",
+    "C:\\Users\\Ahmed\\.nuget\\packages\\microsoft.netcore.platforms\\2.1.2\\microsoft.netcore.platforms.2.1.2.nupkg.sha512",
+    "C:\\Users\\Ahmed\\.nuget\\packages\\microsoft.openapi\\1.4.3\\microsoft.openapi.1.4.3.nupkg.sha512",
+    "C:\\Users\\Ahmed\\.nuget\\packages\\minimalapis.extensions\\0.11.0\\minimalapis.extensions.0.11.0.nupkg.sha512",
+    "C:\\Users\\Ahmed\\.nuget\\packages\\minivalidation\\0.8.0\\minivalidation.0.8.0.nupkg.sha512",
+    "C:\\Users\\Ahmed\\.nuget\\packages\\system.collections.immutable\\1.5.0\\system.collections.immutable.1.5.0.nupkg.sha512",
+    "C:\\Users\\Ahmed\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",
+    "C:\\Users\\Ahmed\\.nuget\\packages\\system.reflection.metadata\\1.6.0\\system.reflection.metadata.1.6.0.nupkg.sha512",
+    "C:\\Users\\Ahmed\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.6.0\\system.runtime.compilerservices.unsafe.4.6.0.nupkg.sha512",
+    "C:\\Users\\Ahmed\\.nuget\\packages\\system.text.encoding.codepages\\4.5.1\\system.text.encoding.codepages.4.5.1.nupkg.sha512",
+    "C:\\Users\\Ahmed\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.3\\system.threading.tasks.extensions.4.5.3.nupkg.sha512",
+    "C:\\Users\\Ahmed\\.nuget\\packages\\xamarin.forms\\3.0.0.446417\\xamarin.forms.3.0.0.446417.nupkg.sha512",
+    "C:\\Users\\Ahmed\\.nuget\\packages\\xamarin.hotreload\\2.0.16\\xamarin.hotreload.2.0.16.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1603",
+      "level": "Warning",
+      "message": "Xamarin.HotReload 2.0.16 depends on Xamarin.Forms (>= 3.0.0) but Xamarin.Forms 3.0.0 was not found. Xamarin.Forms 3.0.0.446417 was resolved instead.",
+      "projectPath": "D:\\Programming\\Dotnet projects\\GameStore.Api\\GameStore.Api\\GameStore.Api.csproj",
+      "warningLevel": 1,
+      "filePath": "D:\\Programming\\Dotnet projects\\GameStore.Api\\GameStore.Api\\GameStore.Api.csproj",
+      "libraryId": "Xamarin.Forms",
+      "targetGraphs": [
+        "net9.0"
+      ]
+    }
+  ]
+}
