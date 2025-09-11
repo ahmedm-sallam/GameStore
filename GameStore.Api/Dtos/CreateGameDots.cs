@@ -4,7 +4,7 @@ namespace GameStore.Api.Dtos;
 
 public record CreateGameDots(
     [Required] string Name,
-    [Required] string Genre,
+    int GenreID,
     [Required] decimal Price,
     [Required] DateOnly ReleaseDate
 );

@@ -1,0 +1,4 @@
+﻿# .gitignore
+.env
+.env.*
+appsettings.Development.json

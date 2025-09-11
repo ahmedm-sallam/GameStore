@@ -1,7 +1,10 @@
 ﻿namespace GameStore.Api.EndPoints;
 
+using Microsoft.AspNetCore.Builder;
 using GameStore.Api.Dtos;
-
+using GameStore.Api.Data;
+using GameStore.Api.Entities;
+    
 public static class GamesEndPoints
 {
     private static readonly List<GameDto> Games = new List<GameDto>
@@ -18,6 +21,7 @@ public static class GamesEndPoints
     {
         var group = app.MapGroup("games").WithParameterValidation();
         // why not use a database? because it's a simple example
+        
         group.MapGet("/", () => Games);
         group.MapGet("/{id}", (int id) =>
         {
@@ -26,17 +30,22 @@ public static class GamesEndPoints
         }).WithName("GetGame");
 
         // POST
-        group.MapPost("/", (CreateGameDots newGame) =>
+        group.MapPost("/", (CreateGameDots newGame, GameStoreContext dbContext) =>
         {
-            GameDto game = new GameDto(
-                Games.Count + 1,
-                newGame.Name,
-                newGame.Genre,
-                newGame.Price,
-                newGame.ReleaseDate
-            );
-            Games.Add(game);
-            return Results.Created($"/{game.id}", game);
+            Game game = new()
+            {
+                Name = newGame.Name,
+                Genre = dbContext.Genres.Find(newGame.GenreID) ?? throw new Exception("Genre not found"),
+                Genreid = newGame.GenreID,
+                Price = newGame.Price,
+                Releasedate = newGame.ReleaseDate
+            };
+            dbContext.Games.Add(game);
+            dbContext.SaveChanges();
+            
+            GameDto gameDto = new(game.id, game.Name, game.Genre!.Name, game.Price, game.Releasedate);
+            
+            return Results.CreatedAtRoute("GetGame", new { id = game.id }, gameDto);
         });
 
         // put 

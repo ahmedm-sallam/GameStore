@@ -5,8 +5,8 @@ POST http://localhost:5298/games
 Content-Type: application/json
 
 {
-  "Name": "MMMORPG Quest",
-  "Genre": "MMORPG",
+  "Name": "GTA 5",
+  "Genreid": 1,
   "Price": 59.99,
   "ReleaseDate": "2024-12-01"
 }
