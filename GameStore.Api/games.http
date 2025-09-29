@@ -5,7 +5,7 @@ POST http://localhost:5298/games
 Content-Type: application/json
 
 {
-  "Name": "GTA 5",
+  "Name": "RDR 2",
   "Genreid": 1,
   "Price": 59.99,
   "ReleaseDate": "2024-12-01"

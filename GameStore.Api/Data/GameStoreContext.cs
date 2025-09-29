@@ -15,7 +15,10 @@ public class GameStoreContext(DbContextOptions<GameStoreContext> options)
         modelBuilder.Entity<Genre>().HasData(
             new { id = 1, Name = "Fighting" },
             new { id = 2, Name = "Science Fiction" },
-            new { id = 3, Name = "Kids and Family" }
+            new { id = 3, Name = "Kids and Family" },
+            new { id = 4, Name = "Action and Adventure" },
+            new { id = 5, Name = "Horror" },
+            new { id = 6, Name = "Platformer" }
         );
     }
 }

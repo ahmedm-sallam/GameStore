@@ -36,6 +36,9 @@ D:\Programming\Dotnet projects\GameStore.Api\GameStore.Api\bin\Debug\net8.0\Mono
 D:\Programming\Dotnet projects\GameStore.Api\GameStore.Api\bin\Debug\net8.0\Npgsql.dll
 D:\Programming\Dotnet projects\GameStore.Api\GameStore.Api\bin\Debug\net8.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
 D:\Programming\Dotnet projects\GameStore.Api\GameStore.Api\bin\Debug\net8.0\Sprache.dll
+D:\Programming\Dotnet projects\GameStore.Api\GameStore.Api\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\Programming\Dotnet projects\GameStore.Api\GameStore.Api\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\Programming\Dotnet projects\GameStore.Api\GameStore.Api\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 D:\Programming\Dotnet projects\GameStore.Api\GameStore.Api\bin\Debug\net8.0\System.CodeDom.dll
 D:\Programming\Dotnet projects\GameStore.Api\GameStore.Api\bin\Debug\net8.0\System.Composition.AttributedModel.dll
 D:\Programming\Dotnet projects\GameStore.Api\GameStore.Api\bin\Debug\net8.0\System.Composition.Convention.dll
