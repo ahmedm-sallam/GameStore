@@ -1,0 +1,17 @@
+﻿# Repository root .gitignore
+
+# Ignore JetBrains IDE folders anywhere in the repository
+**/.idea/
+**/.idea*
+
+# Ignore EF Core migration folders anywhere
+**/Migrations/
+
+# Ignore environment files
+*.env
+.env
+.env.*
+
+# Ignore appsettings development
+**/appsettings.Development.json
+
