@@ -2,3 +2,8 @@
 .env
 .env.*
 appsettings.Development.json
+.idea/
+
+# Ignore EF Core migration folders (project-specific and any other Migrations folders)
+Data/Migrations/
+**/Migrations/
