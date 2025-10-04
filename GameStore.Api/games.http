@@ -12,19 +12,17 @@ Content-Type: application/json
 }
 
 ### update
-PUT http://localhost:5298/games/1
+PUT http://localhost:5298/games/5
 Content-Type: application/json
 
 {
-  "Name": "GTA 5",
-  "Genre": "Open World",
+  "Name": "Super Mario Odyssey",
+  "GenreID": 2,
   "Price": 59.99,
-  "ReleaseDate": "2024-12-01"
+  "ReleaseDate": "2020-12-01"
 }
 
 
 ### Delete
 
 DELETE http://localhost:5298/games/1
-
-

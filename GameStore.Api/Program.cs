@@ -48,5 +48,5 @@ app.UseSwaggerUI(options =>
     options.RoutePrefix = "swagger"; // Makes swagger available at /swagger
 });
 
-app.MigrateDb();
+await app.MigrateDbAsync();
 app.Run();

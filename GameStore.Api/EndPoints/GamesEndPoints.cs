@@ -1,4 +1,5 @@
 ﻿using GameStore.Api.Mapping;
+using Microsoft.EntityFrameworkCore;
 
 namespace GameStore.Api.EndPoints;
 
@@ -15,26 +16,23 @@ public static class GamesEndPoints
         var group = app.MapGroup("games").WithParameterValidation();
         // why not use a database? because it's a simple example
         
-        group.MapGet("/", (GameStoreContext dbContext) =>
+        group.MapGet("/", (GameStoreContext dbContext) => 
+            dbContext.Games
+                .Include(game => game.Genre )
+                .OrderBy(game => game.id)
+                .Select(game => game.toGameSummaryDto())
+                .AsNoTracking()
+                .ToListAsync()
+            
+        );
+        group.MapGet("/{id}", async (int id, GameStoreContext dbContext) =>
         {
-            var games = dbContext.Games
-                .Select(game => new GameDto(
-                    game.id,
-                    game.Name,
-                    game.Genre!.Name,
-                    game.Price,
-                    game.Releasedate))
-                .ToList();
-            return games;
-        });
-        group.MapGet("/{id}", (int id, GameStoreContext dbContext) =>
-        {
-            Game? game = dbContext.Games.Find(id);
+            Game? game = await dbContext.Games.FindAsync(id);
             return game is not null ? Results.Ok(game.toGameDetailsDto()) : Results.NotFound();
         }).WithName("GetGame");
 
         // POST
-        group.MapPost("/", (CreateGameDots newGame, GameStoreContext dbContext) =>
+        group.MapPost("/", async (CreateGameDots newGame, GameStoreContext dbContext) =>
         {
             Game game = newGame.toEntity();
             if (game.Genre is null)
@@ -42,32 +40,34 @@ public static class GamesEndPoints
                 return Results.BadRequest($"Genre with ID {newGame.GenreID} not found.");
             }
             dbContext.Games.Add(game);
-            dbContext.SaveChanges();
+            await dbContext.SaveChangesAsync();
             
             return Results.CreatedAtRoute("GetGame", new { id = game.id },game.toGameDetailsDto());
         });
 
         // put 
-        // group.MapPut("/{id}", (int id, UpdateGameDto updateGameDto) =>
-        // {
-        //     var index = Games.FindIndex(game => game.id == id);
-        //     Games[index] = new GameDto(
-        //         id,
-        //         updateGameDto.Name,
-        //         updateGameDto.Genre,
-        //         updateGameDto.Price,
-        //         updateGameDto.ReleaseDate);
-        //
-        //     return Results.Accepted();
-        // });
-        //
-        //
-        // group.MapDelete("/{id}", (int id) =>
-        // {
-        //     Games.RemoveAll(game => game.id == id);
-        //
-        //     return Results.NoContent();
-        // });
+        group.MapPut("/{id}", async (int id, UpdateGameDto updateGameDto, GameStoreContext dbContext) =>
+        {
+            var game = await dbContext.Games.FindAsync(id);
+            if (game is null)
+            {
+                return Results.NotFound();
+            }
+            
+            dbContext.Entry(game).CurrentValues.SetValues(updateGameDto.toEntity(id));
+            await dbContext.SaveChangesAsync();
+            
+            return Results.Accepted();
+        });
+        
+        
+        group.MapDelete("/{id}", async (int id, GameStoreContext dbContext) =>
+        {
+            await dbContext.Games
+                .Where(game => game.id == id)
+                .ExecuteDeleteAsync();
+            return Results.Accepted("Game deleted");
+        });
 
         return group;
     }
